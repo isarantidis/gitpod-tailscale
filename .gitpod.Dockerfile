@@ -1,3 +1,5 @@
+FROM gitpod/workspace-full:2022-12-02-22-15-49
+
 USER root
 
 # Install jq (if not done already). Required for the .gitpod.yml tasks below.
