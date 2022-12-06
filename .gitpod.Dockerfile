@@ -10,4 +10,4 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key
      
 RUN curl -fsSL https://get.pulumi.com | sh
 
-RUN set PATH=$PATH:~/pulumi/bin
+RUN set PATH=$PATH:/home/gitpod/.pulumi/bin
