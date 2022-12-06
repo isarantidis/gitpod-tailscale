@@ -11,4 +11,11 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key
      && update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
 
 RUN cd /home/gitpod
+
+# Install pulumi
 RUN curl -fsSL https://get.pulumi.com | sh
+RUN export PATH=$PATH:~/.pulumi/bin
+
+# Kubernetes
+RUN curl -LO https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl && sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+RUN mkdir ~/.kube
