@@ -9,7 +9,3 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key
      && update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
      
 RUN curl -fsSL https://get.pulumi.com | sh
-
-RUN export PATH=$PATH:/home/gitpod/.pulumi/bin
-
-RUN mkdir /home/gitpod/.kube
