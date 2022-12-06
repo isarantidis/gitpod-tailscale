@@ -7,10 +7,6 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key
      && apt-get update \
      && apt-get install -y tailscale jq \
      && update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
-
-RUN sudo apt install snapd
-
-RUN snap install kubectl --classic
      
 RUN curl -fsSL https://get.pulumi.com | sh
 
