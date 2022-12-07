@@ -21,7 +21,7 @@ RUN curl -O https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-3_all.deb \
      && sudo apt-get -yq install zulu11-jdk
 
 # maven
-RUN wget https://mirrors.estointernet.in/apache/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz \
+RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz \
     && tar -xvf apache-maven-3.8.6-bin.tar.gz \
     && mv apache-maven-3.8.6 /opt/ \
     && echo 'export M2_HOME=/opt/apache-maven-3.8.6' >> ~/.bashrc \
