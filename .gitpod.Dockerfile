@@ -14,8 +14,8 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key
 RUN sudo apt-get -q update && sudo apt-get -yq install gnupg curl \
     && sudo apt-key adv \
           --keyserver hkp://keyserver.ubuntu.com:80 \
-          --recv-keys 0xB1998361219BD9C9 \
-     && curl -O https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-3_all.deb \
+          --recv-keys 0xB1998361219BD9C9 
+RUN curl -O https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-3_all.deb \
      && sudo apt-get install ./zulu-repo_1.0.0-3_all.deb \
      && sudo apt-get update \
      && sudo apt-get install zulu11-jdk
