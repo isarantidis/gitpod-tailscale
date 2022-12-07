@@ -14,8 +14,8 @@ RUN cd /home/gitpod
 
 # Install pulumi
 RUN curl -fsSL https://get.pulumi.com | sh
-RUN export PATH=$PATH:~/.pulumi/bin
+RUN echo 'export PATH=$PATH:~/.pulumi/bin' >> ~/.bashrc
 
 # Kubernetes
 RUN curl -LO https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl && sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-RUN mkdir ~/.kube
+RUN mkdir /workspace/.kube
