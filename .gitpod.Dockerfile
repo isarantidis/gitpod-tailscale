@@ -25,5 +25,5 @@ RUN curl -fsSL https://get.pulumi.com | sh
 RUN echo 'export PATH=$PATH:~/.pulumi/bin' >> ~/.bashrc
 
 # Kubernetes
-RUN curl -LO https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl && sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+RUN curl -LO https://dl.k8s.io/release/v1.21.14/bin/linux/amd64/kubectl && sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 RUN mkdir /workspace/.kube
