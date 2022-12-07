@@ -18,7 +18,7 @@ RUN sudo apt-get -q update && sudo apt-get -yq install gnupg curl \
 RUN curl -O https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-3_all.deb \
      && sudo apt-get install ./zulu-repo_1.0.0-3_all.deb \
      && sudo apt-get update \
-     && sudo apt-get install zulu11-jdk
+     && sudo apt-get -yq install zulu11-jdk
 
 # Install pulumi
 RUN curl -fsSL https://get.pulumi.com | sh
