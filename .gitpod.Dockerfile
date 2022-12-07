@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full:2022-12-02-22-15-49
+FROM gitpod/workspace-node-lts:2022-12-02-22-15-49
 
 USER root
 
@@ -10,7 +10,15 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key
      && apt-get install -y tailscale jq \
      && update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
 
-RUN cd /home/gitpod
+# JDK
+RUN sudo apt-get -q update && sudo apt-get -yq install gnupg curl \
+    && sudo apt-key adv \
+          --keyserver hkp://keyserver.ubuntu.com:80 \
+          --recv-keys 0xB1998361219BD9C9 \
+     && curl -O https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-3_all.deb \
+     && sudo apt-get install ./zulu-repo_1.0.0-3_all.deb \
+     && sudo apt-get update \
+     && sudo apt-get install zulu11-jdk
 
 # Install pulumi
 RUN curl -fsSL https://get.pulumi.com | sh
