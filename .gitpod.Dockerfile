@@ -3,7 +3,7 @@ FROM gitpod/workspace-node-lts:2022-12-02-22-15-49
 USER root
 
 ARG KUSTOMIZE_VERSION=3.2.0
-ARG KUSTOMIZE_LOCATION=~/kustomize
+ARG KUSTOMIZE_LOCATION=$HOME/kustomize
 
 # Install jq (if not done already). Required for the .gitpod.yml tasks below.
 
@@ -40,7 +40,7 @@ RUN curl -LO https://dl.k8s.io/release/v1.21.14/bin/linux/amd64/kubectl && sudo 
 RUN mkdir /workspace/.kube && touch /workspace/.kube/config
 RUN echo 'export KUBECONFIG=/workspace/.kube/config' >> ~/.bashrc
 #kustomize 3.2.0 should be used for kubeflow
-RUN mkdir ~/kustomize \
-    && curl -L https://github.com/kubernetes-sigs/kustomize/releases/download/v$KUSTOMIZE_VERSION/kustomize_$KUSTOMIZE_VERSION_linux_amd64 --output $KUSTOMIZE_LOCATION/kustomize \
-    && chmod +x kustomize \
-    && echo 'export PATH=$PATH:$KUSTOMIZE_LOCATION' >> ~/.bashrc
+RUN mkdir ${KUSTOMIZE_LOCATION} \
+    && curl -L https://github.com/kubernetes-sigs/kustomize/releases/download/v${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64 -o $KUSTOMIZE_LOCATION/kustomize \
+    && chmod +x $KUSTOMIZE_LOCATION/kustomize \
+    && echo 'export PATH=$PATH:$KUSTOMIZE_LOCATION' >> $HOME/.bashrc
