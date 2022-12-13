@@ -31,8 +31,9 @@ RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.
     && echo 'export PATH=$M2_HOME/bin:$PATH' >> ~/.bashrc
     
 # Install pulumi
-RUN curl -fsSL https://get.pulumi.com | sh
-RUN echo 'export PATH=$PATH:~/.pulumi/bin' >> ~/.bashrc
+RUN curl -fsSL https://get.pulumi.com | sh \
+    && echo 'export PATH=$PATH:~/.pulumi/bin' >> ~/.bashrc \
+    && sudo chown gitpod -R $HOME/.pulumi
 
 # Kubernetes
 RUN curl -LO https://dl.k8s.io/release/v1.21.14/bin/linux/amd64/kubectl && sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
