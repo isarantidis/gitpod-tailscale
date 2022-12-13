@@ -33,6 +33,7 @@ RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.
 # Install pulumi
 RUN curl -fsSL https://get.pulumi.com | sh \
     && echo 'export PATH=$PATH:~/.pulumi/bin' >> ~/.bashrc \
+    && echo 'export PULUMI_CONFIG_PASSPHRASE=pulumi' >> ~/.bashrc \
     && sudo chown gitpod -R $HOME/.pulumi
 
 # Kubernetes
